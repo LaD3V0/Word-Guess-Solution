@@ -1,10 +1,11 @@
-﻿' Name:         Word Guess Project
+﻿Option Explicit On
+Option Strict On
+Option Infer Off
+' Name:         Word Guess Project
 ' Purpose:      Guess the word entered by player 1.
 ' Programmer:   <your name> on <current date>
 
-Option Explicit On
-Option Strict On
-Option Infer Off
+Imports System.Net.Security
 
 Public Class frmMain
     Private Sub btnNewWord_Click(sender As Object, e As EventArgs) Handles btnNewWord.Click
@@ -36,14 +37,26 @@ Public Class frmMain
         If strWord.Contains(strLetter) Then
             ' Replace the hyphen(s) in strResult.
             For intindex As Integer = 0 To strWord.Length - 1
+                If strWord(intindex) = strLetter Then
+                    strResult = strResult.Remove(intindex, 1)
+                    strResult = strResult.Insert(intindex, strLetter)
+                End If
 
             Next
             ' Display the contents of strResult.
-
+            lblResult.Text = strResult
             ' Determine whether strResult contains any hyphens.
-
+            If strResult.Contains("-") = False Then
+                MessageBox.Show("You Guessed IT?!!: " & strWord,
+            "Guess The Word Game",
+            MessageBoxButtons.OK, MessageBoxIcon.Information)
+                grpWord.Enabled = True
+                grpLetter.Enabled = False
+                lblResult.Text = String.Empty
+                txtWord.Focus()
+            End If
         Else
-            MessageBox.Show("Try again!", "Guess the Word Game",
+                MessageBox.Show("Try again!", "Guess the Word Game",
                  MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
         txtLetter.Text = String.Empty
