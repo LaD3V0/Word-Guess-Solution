@@ -49,7 +49,9 @@ Partial Class frmMain
         'txtWord
         '
         Me.txtWord.Location = New System.Drawing.Point(120, 25)
+        Me.txtWord.MaxLength = 5
         Me.txtWord.Name = "txtWord"
+        Me.txtWord.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtWord.Size = New System.Drawing.Size(79, 23)
         Me.txtWord.TabIndex = 1
         '
@@ -65,6 +67,7 @@ Partial Class frmMain
         'txtLetter
         '
         Me.txtLetter.Location = New System.Drawing.Point(69, 22)
+        Me.txtLetter.MaxLength = 1
         Me.txtLetter.Name = "txtLetter"
         Me.txtLetter.Size = New System.Drawing.Size(32, 23)
         Me.txtLetter.TabIndex = 1
@@ -94,6 +97,7 @@ Partial Class frmMain
         Me.grpLetter.Controls.Add(Me.lblResult)
         Me.grpLetter.Controls.Add(Me.Label2)
         Me.grpLetter.Controls.Add(Me.Label3)
+        Me.grpLetter.Enabled = False
         Me.grpLetter.Location = New System.Drawing.Point(55, 98)
         Me.grpLetter.Name = "grpLetter"
         Me.grpLetter.Size = New System.Drawing.Size(221, 100)
