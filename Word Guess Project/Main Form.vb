@@ -33,17 +33,19 @@ Public Class frmMain
         strLetter = txtLetter.Text.Trim.ToUpper
         strResult = lblResult.Text
 
-        ' If Then
-        ' Replace the hyphen(s) in strResult.
+        If strWord.Contains(strLetter) Then
+            ' Replace the hyphen(s) in strResult.
+            For intindex As Integer = 0 To strWord.Length - 1
 
-        ' Display the contents of strResult.
+            Next
+            ' Display the contents of strResult.
 
-        ' Determine whether strResult contains any hyphens.
+            ' Determine whether strResult contains any hyphens.
 
-        ' Else
-        MessageBox.Show("Try again!", "Guess the Word Game",
+        Else
+            MessageBox.Show("Try again!", "Guess the Word Game",
                  MessageBoxButtons.OK, MessageBoxIcon.Information)
-        ' End If
+        End If
         txtLetter.Text = String.Empty
     End Sub
 
